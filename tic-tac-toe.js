@@ -1,5 +1,11 @@
 	
 //document.getElementsByTagName("body").setAttribute('onLoad','startGame()');
+
+var firstMove = new Array ();
+
+var secondMove = new Array ();
+
+
 	var tbl = document.createElement('table');
 	tbl.setAttribute('border','1');
 	tbl.style.width = '50%';
@@ -31,9 +37,17 @@ function startGame(){
 function nextMove(square){
 	square.innerText = document.turn;
 	if(document.turn == 'X'){
-		console.log('XX'+square.id);
+		//console.log('XX'+square.id);
+		firstMove.push(square.id);
+		var idFstDis = square.id;
+		console.log(idFstDis);
+		console.log(document.getElementById(idFstDis)).disabled = true;
 	}else{
-		console.log('OO'+square.id);
+		
+		secondMove.push(square.id);
+		var idScdDis = square.id;
+		document.getElementById(square.id).disabled = true;
+		console.log(document.getElementById(idScdDis));
 	}
 	switchTurn();
 }
